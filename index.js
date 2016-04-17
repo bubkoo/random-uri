@@ -5,16 +5,16 @@ var pickItem      = require('pick-item');
 var randomDoamins = require('random-domains');
 
 
-module.exports = function (protocol, qurey, hash) {
+module.exports = function (protocol, query, hash) {
 
   protocol = protocol ? toString(protocol) : pickItem(['http', 'https']);
-  qurey    = qurey ? toString(qurey) : '';
+  query    = query ? toString(query) : '';
   hash     = hash ? toString(hash) : '';
 
   var url = protocol + '://www.' + randomDoamins();
 
-  if (qurey) {
-    url += '?' + qurey;
+  if (query) {
+    url += '?' + query;
   }
 
   if (hash) {

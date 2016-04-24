@@ -10,12 +10,20 @@ var randomDomain = require('random-domains');
 module.exports = function (options) {
 
   options = assign({
-    protocol: pickItem(['http', 'https']),
-    domain: randomDomain(),
+    protocol: '',
+    domain: '',
     path: false,
     query: false,
     hash: false
   }, options);
+
+  if (!options.protocol) {
+    options.protocol = pickItem(['http', 'https']);
+  }
+
+  if (!options.domain) {
+    options.domain = randomDomain();
+  }
 
   var url   = options.protocol + '://www.' + options.domain;
   var path  = options.path ? toString(options.path) : '';

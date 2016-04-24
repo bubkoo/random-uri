@@ -1,8 +1,6 @@
 # random-uri
 
-> Generate a random url.
-
-
+> Return a random url.
 
 [![MIT License](https://img.shields.io/badge/license-MIT_License-green.svg?style=flat-square)](https://github.com/mock-end/random-uri/blob/master/LICENSE)
 
@@ -23,46 +21,60 @@ $ npm install --save random-uri
 
 ```js
 var randomUrl = require('random-uri');
-// randomUrl(protocol, query, hash)
+
+// API
+// - randomUrl(options)
+
+// options
+// - protocol
+// - domain
+// - path
+// - query
+// - hash
+
 
 randomUrl();
 // => http://www.ase.com
 
-randomUrl('ftp');
+randomUrl({protocol: 'ftp'});
 // => ftp://www.gjiis.cn
 
-randomUrl('', 'foo=bar');
-// => https://www.asdji.com?foo-bar
+randomUrl({domain: 'example.com'});
+// => http://www.example.cn
 
-randomUrl('', 'foo=bar', 'readme');
-// => https://www.asdji.com?foo-bar#readme
+randomUrl({path: 'path/to/file'});
+// => http://www.ttksd.cn?path/to/file
 
+randomUrl({query: 'foo=bar&baz=qux'});
+// => https://www.asdji.com?foo=bar&baz=qux
+
+randomUrl({hash: 'readme'});
+// => https://www.kjksiij.com#readme
+
+randomUrl({hash: true});
+// => https://www.jiwhahsud.com#llojsuchej
+
+randomUrl({
+    protocol: 'http',
+    domain: 'example.com',
+    path: 'path/to/file',
+    query: 'foo=bar&baz=qux',
+    hash: true
+};
+
+// http://example.com/path/to/file?foo=bar&baz=qux#ksijahs
 ```
 
 ## Related
 
-- [random-integral](https://github.com/mock-end/random-integral) - Generate a random integer.
-- [random-natural](https://github.com/mock-end/random-natural) - Generate a random natural number.
-- [random-decimal](https://github.com/mock-end/random-decimal) - Generate a random decimal.
-- [random-index](https://github.com/mock-end/random-index) - Generate a random array-like index.
-- [random-hexadecimal](https://github.com/mock-end/random-hexadecimal) - Generate a random hexadecimal number.
-- [random-octal](https://github.com/mock-end/random-octal) - Generate a random octal.
-- [random-unicode](https://github.com/mock-end/random-unicode) - Generate a random unicode.
-- [random-bool](https://github.com/mock-end/random-bool) - Generate a random boolean (true/false).
-- [random-char](https://github.com/mock-end/random-char) - Generate a random char.
-- [random-lorem](https://github.com/mock-end/random-lorem) - Generate a random world.
-- [random-title](https://github.com/mock-end/random-title) - Generate a random title.
-- [random-sentence](https://github.com/mock-end/random-sentence) - Generate a random sentence.
-- [random-paragraph](https://github.com/mock-end/random-paragraph) - Generate a random paragraph.
-- [random-tld](https://github.com/mock-end/random-tld) - Return a random tld.
-- [random-domains](https://github.com/mock-end/random-domains) - Generate a random domain name.
-- [random-email](https://github.com/mock-end/random-email) - Generate a random email.
-- [random-lang](https://github.com/mock-end/random-lang) - Return a random language name.
-- [random-mobile](https://github.com/mock-end/random-mobile) - Generate a random chinese mobile phone number.
-- [random-zipcode](https://github.com/mock-end/random-zipcode) - Generate a random chinese zipcode.
-- [random-ipv4](https://github.com/mock-end/random-ipv4) - Generate a random ipv4 address.
-- [random-ipv6](https://github.com/mock-end/random-ipv6) - Generate a random ipv6 address.
-- [random-color](https://github.com/mock-end/random-color) - Generate a random color.
+- [random-tld](https://github.com/mock-end/random-tld) - Return a random tld(Top Level Domain).
+- [random-domains](https://github.com/mock-end/random-domains) - Return a random domain.
+- [random-email](https://github.com/mock-end/random-email) - Return a random email.
+- [random-protocol](https://github.com/mock-end/random-protocol) - Return a random protocol.
+- [random-hashtag](https://github.com/mock-end/random-tld) - Return a random hashtag.
+- [random-ipv4](https://github.com/mock-end/random-ipv4) - Return a random ipv4 address.
+- [random-ipv6](https://github.com/mock-end/random-ipv6) - Return a random ipv6 address.
+- [random-avatar](https://github.com/mock-end/random-avatar) - Return a URL to a random avatar from Gravatar.
 
 ## Contributing
 

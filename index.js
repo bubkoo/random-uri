@@ -1,24 +1,58 @@
 'use strict';
 
-var toString      = require('to-str');
-var pickItem      = require('pick-item');
-var randomDoamins = require('random-domains');
+var assign       = require('object-assign');
+var toString     = require('to-str');
+var pickItem     = require('pick-item');
+var randomHash   = require('random-hashtag');
+var randomDomain = require('random-domains');
 
 
-module.exports = function (protocol, query, hash) {
+module.exports = function (options) {
 
-  protocol = protocol ? toString(protocol) : pickItem(['http', 'https']);
-  query    = query ? toString(query) : '';
-  hash     = hash ? toString(hash) : '';
+  options = assign({
+    protocol: pickItem(['http', 'https']),
+    domain: randomDomain(),
+    path: false,
+    query: false,
+    hash: false
+  }, options);
 
-  var url = protocol + '://www.' + randomDoamins();
+  var url   = options.protocol + '://www.' + options.domain;
+  var path  = options.path ? toString(options.path) : '';
+  var query = options.query ? toString(options.query) : '';
+  var hash  = options.hash;
+
+  if (hash === true) {
+    hash = randomHash();
+  }
+
+  hash = hash ? toString(hash) : '';
+
+  if (path) {
+
+    if (path[0] === '/') {
+      url += path;
+    } else {
+      url += '/' + path;
+    }
+  }
 
   if (query) {
-    url += '?' + query;
+
+    if (query[0] === '?') {
+      url += query;
+    } else {
+      url += '?' + query;
+    }
   }
 
   if (hash) {
-    url += '#' + hash;
+
+    if (hash[0] === '#') {
+      url += hash;
+    } else {
+      url += '#' + hash;
+    }
   }
 
   return url;

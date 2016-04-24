@@ -1,6 +1,6 @@
 {
   "name": "random-uri",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Return a random url.",
   "main": "index.js",
   "scripts": {
@@ -48,6 +48,7 @@
     "object-assign": "^4.0.1",
     "pick-item": "^1.0.1",
     "random-domains": "1.0.0",
+    "random-hashtag": "^1.0.0",
     "to-str": "^1.0.0"
   }
 }

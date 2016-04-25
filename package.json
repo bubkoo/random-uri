@@ -45,10 +45,13 @@
     "mocha": "^2.4.5"
   },
   "dependencies": {
+    "is-object": "^1.0.1",
     "object-assign": "^4.0.1",
-    "pick-item": "^1.0.1",
-    "random-domains": "1.0.0",
-    "random-hashtag": "^1.0.0",
+    "pick-item": "^1.0.4",
+    "random-domains": "1.0.3",
+    "random-hashtag": "^1.0.1",
+    "random-lorem": "^1.0.4",
+    "random-natural": "^1.0.3",
     "to-str": "^1.0.0"
   }
 }

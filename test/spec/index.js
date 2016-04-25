@@ -37,8 +37,32 @@ describe('random-url: ', function () {
     expect(randomUrl({
       protocol: 'http',
       domain: 'example.com',
+      path: '/path/to/file',
+      extensions: '.png'
+    }))
+      .to.be.match(/^http:\/\/www\.example\.com\/path\/to\/file\.png/);
+
+    expect(randomUrl({
+      protocol: 'http',
+      domain: 'example.com',
+      path: '/path/to/file',
+      extensions: ['png','bmp']
+    }))
+      .to.be.match(/^http:\/\/www\.example\.com\/path\/to\/file\.((png)|(bmp))/);
+
+    expect(randomUrl({
+      protocol: 'http',
+      domain: 'example.com',
       path: 'path/to/file',
       query: 'foo=bar&baz=qux'
+    }))
+      .to.be.match(/^http:\/\/www\.example\.com\/path\/to\/file\?foo=bar&baz=qux/);
+
+    expect(randomUrl({
+      protocol: 'http',
+      domain: 'example.com',
+      path: 'path/to/file',
+      query: { foo: 'bar', baz: 'qux' }
     }))
       .to.be.match(/^http:\/\/www\.example\.com\/path\/to\/file\?foo=bar&baz=qux/);
 
@@ -67,5 +91,7 @@ describe('random-url: ', function () {
       hash: true
     }))
       .to.be.match(/^http:\/\/www\.example\.com\/path\/to\/file\?foo=bar&baz=qux#/);
+
+
   });
 });

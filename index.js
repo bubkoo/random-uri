@@ -54,8 +54,8 @@ module.exports = function (options) {
   }
 
 
+  var extension;
   if (options.extensions) {
-    var extension;
     if (typeof options.extensions === 'string') {
       extension = options.extensions;
     } else {
